@@ -27,6 +27,17 @@ def test():
 
     return make_response(jsonify({'status': True}), 200)
 
+@app.route("/blog", methods=['GET','POST','DELETE'])
+def blog():
+    if request.method == 'POST':
+        print('POST')
+        data = request.get_json();
+        print(data)
+        print(data['email'])
+    if request.method == 'GET':
+        print('GET')
+        user = request.get_json('email');
+        print(user)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="8082")

@@ -9,7 +9,6 @@ app = Flask(__name__, static_url_path='/static')
 CORS(app)
 app.secret_key = 'dave_server1'
 
-
 @login_manager.user_loader
 def load_user(user_id):
     return User.gert(user_id)
